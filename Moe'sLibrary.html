@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+    body {
+        background-color: #282c35;
+        color: white;
+        font-family: arial;
+    }
+    button {
+        background-color: lightseagreen;
+        border: 0;
+        font-size: 18px;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-weight: bold;
+    }
+    li {
+        border: solid 0.5px;
+        border-radius: 10px;
+        list-style: none;
+        padding-left: 20px;
+        margin-top: 10px;
+        max-width: 400px;
+    }
+    .close:after {
+        content: "X";
+    }
+    .close {
+        float: right;
+        background: #a52c2c;
+        color: white;
+        padding: 5px;
+        margin: 7px;
+        border: solid #a52c2c;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+
+</style>
+<h1>Welcome To Moe's Library!</h1>
+
+<button onclick="whatIsYourBook()">Add a New Book!</button>
+<ul>
+</ul>
+<br>
+<script>
+    function whatIsYourBook() {
+        var answer = prompt("What is the name of Your Book?")
+        var h2element = document.createElement("h2")
+        h2element.innerHTML = answer
+        var answer = prompt("What is the name of the Author of your Book?")
+        var h3element = document.createElement("h3")
+        h3element.innerHTML = answer
+        var closeButton = document.createElement("button")
+        closeButton.classList.add("close")
+        var divElement = document.createElement("div")
+        divElement.appendChild(closeButton)
+
+        var liElement = document.createElement("li")
+        liElement.appendChild(divElement)
+        liElement.appendChild(h2element)
+        liElement.appendChild(h3element)
+        var ulElement = document.querySelector("ul")
+        ulElement.appendChild(liElement)
+        closeButton.addEventListener("click", handleClick)
+        function handleClick(){
+            ulElement.removeChild(liElement)
+        }
+    }
+
+</script>
+</body>
+</html>
